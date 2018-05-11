@@ -1,3 +1,4 @@
+from connector import Mongo
 class Muscle:
     def __init__(self, name, action_list, relative_muscle, muscle_group):
         self.name = name
@@ -5,6 +6,10 @@ class Muscle:
         self.relative_muscle = relative_muscle
         self.muscle_group = muscle_group
 
+    def list_muscleGroup_action(self, name):
+        res = Mongo.muscle.find_one({'name':name})
+        return res
+    
     def list_action(self, require):
         ret = []
         for action in self.action_list:
