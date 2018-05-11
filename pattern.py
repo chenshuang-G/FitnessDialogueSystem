@@ -4,9 +4,9 @@ patternList = [
     ['action', '肌肉'],
     ['action', 'muscle'],
     ['action', '有效'],
-    ['可以', 'muscle'],  # 怎么样可以锻炼腹肌
-    ['action', 'special'],  # 平板支撑需要什么器械/道具/设备/条件
-    ['aciton', '动作']  # 跟仰卧起坐差不多的动作有什么
+    ['可以', 'muscle'],# 怎么样可以锻炼腹肌
+    ['action', '器材'],# 平板支撑需要什么器械/道具/设备/条件
+    ['action', '动作']# 跟仰卧起坐差不多的动作有什么
 ]
 
 
@@ -19,7 +19,7 @@ def pattern_match(pattern, sentence):
     if len(pattern) != len(sentence):
         return False
     l = len(sentence)
-    #print(l)
+    # print(l)
     for i in range(l):
         #print(pattern[i])
         #print(sentence[i])
@@ -31,7 +31,7 @@ def pattern_match(pattern, sentence):
             if sentence[i][0] == 'muscle':
                 continue
             return False
-        if sentence[i][0] == 'special' or sentence[i][1] == pattern[i]:
+        if sentence[i][1] == pattern[i]:
             continue
         return False
     return True
@@ -39,9 +39,12 @@ def pattern_match(pattern, sentence):
 
 def pattern(sentence):
     for index, p in enumerate(patternList):
+        # print(index)
+
         if pattern_match(p, sentence):
             print(sentence)
             if index == 0:
+                # print(1)
                 return get_muscle_of_action(sentence[0][1])
             if index == 1:
                 return get_muscleGroup_action(sentence[1][1])
@@ -60,6 +63,6 @@ if __name__ == '__main__':
     print(pattern([('action', '平板支撑'), ('special', '肌肉')]))
     print(pattern([('action', '平板支撑'), ('muscle', '腹肌')]))
     print(pattern([('action', '平板支撑'), ('special','有效')]))
-    print(pattern([('speical', '可以'),('muscle', '腹肌')]))
-    print(pattern([('action', '平板支撑'),('special', '器材')]))
-    print(pattern([('action', '平板支撑'),('special', '动作')]))
+    print(pattern([('special', '可以'), ('muscle', '腹肌')]))
+    print(pattern([('action', '平板支撑'), ('special', '器材')]))
+    # print(pattern([('action', '平板支撑'), ('special', '动作')]))#unsovle
