@@ -22,6 +22,6 @@ class MuscleGroup:
     def list_muscleGroup_action(self):
         res = Mongo.muscle.find_one({'name': self.name})
         dict_muscle = res['muscleGroup']
-        new_dict = str(dict_muscle).split(',')
+        new_dict = str(dict_muscle).replace(' ','').split(',')
         return new_dict
 
