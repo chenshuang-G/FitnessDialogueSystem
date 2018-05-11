@@ -2,6 +2,11 @@ from solve import *
 
 patternList = [
     ['action', '肌肉']
+    ['action', 'muscle']
+    ['action', '有效']
+    ['可以' , 'muscle']#怎么样可以锻炼腹肌
+    ['action', 'special']#平板支撑需要什么器械/道具/设备/条件
+    ['aciton', '动作']#跟仰卧起坐差不多的动作有什么
 ]
 
 
