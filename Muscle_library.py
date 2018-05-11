@@ -94,14 +94,6 @@ for i, element in enumerate(add_group):
         url_newadd = url_new
         data = Muscle_lib(url_newadd)
         muscle_temp.append(data.start_muscle_related())
-    muscle[muscle_group[i]] = str(muscle_temp).replace('[','').replace(']','').replace('\'','')
+    muscle['name'] = muscle_group[i]
+    muscle['muscleGroup'] = str(muscle_temp).replace('[','').replace(']','').replace('\'','')
     ActionTable.insert_one(muscle)
-    # actions['name'] = str(action_name).replace('[','').replace(']','').replace('\'','')
-    # actions['type'] = str(Atype).replace('[','').replace(']','').replace('\'','')
-    # actions['level'] = str(level).replace('[','').replace(']','').replace('\'','')
-    # actions['mainMuscle'] = str(main_goal).replace('[','').replace(']','').replace('\'','')
-    # actions['assistantMuscle'] = str(other_goal).replace('[','').replace(']','').replace('\'','')
-    # actions['equipment'] = str(require).replace('[','').replace(']','').replace('\'','')
-    # actions['details'] = str(tips).replace('\n','').replace('[','').replace(']','').replace('\'','')
-    # 将一个动作信息存入数据集中
-    # ActionTable.insert_one(actions)
