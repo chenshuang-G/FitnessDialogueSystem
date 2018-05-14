@@ -8,12 +8,13 @@ class Muscle:
         self.relative_muscle = relative_muscle
         self.muscle_group = muscle_group
 
-    def list_action(self, require):
+    def get_action(self, require):
         ret = []
         for action in self.action_list:
             if action.match(require):
                 ret += action
         return ret
+
 
 class MuscleGroup:
     def __init__(self, name):
