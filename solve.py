@@ -31,7 +31,13 @@ def get_muscleGroup_action(muscleGroup):
     # 返回肌肉组 涵盖动作
     return MuscleGroup(muscleGroup).list_muscleGroup_action()
 
+def get_describe_of_action(action):
+    # 返回动作描述
+    return Action(action).get_describe()
 
+def get_action_of_muscle(muscle):
+    # 返回动作列表
+    return Muscle(muscle).get_action()
 if __name__ == '__main__':
     print(get_muscle_of_action('平板支撑'))
     print(get_muscleGroup_action('肱二头肌'))
