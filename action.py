@@ -11,6 +11,11 @@ class Action:
         self.assistantMuscle = res['assistantMuscle']
         self.equipment = res['equipment']
         self.details = res['details']
+        self.describe = res['describe']
+
+
+    def find_muscle_action(self, muscle):
+        return  Mongo.action.find({'mianMuscle': muscle})
 
     def match(self, require):
         require_type = require.get('type', None)
@@ -38,4 +43,8 @@ class Action:
 
     def get_details(self):
         return self.details
+
+    def get_describe(self):
+        return self.describe
+
 
