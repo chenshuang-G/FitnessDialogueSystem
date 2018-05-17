@@ -16,6 +16,7 @@ class Muscle:
         return ret
 
 
+
 class MuscleGroup:
     def __init__(self, name):
         self.name = name
@@ -25,4 +26,23 @@ class MuscleGroup:
         dict_muscle = res['muscleGroup']
         new_dict = str(dict_muscle).replace(' ','').split(',')
         return new_dict
+
+    def find_related_action(self):
+        res = Mongo.action.find()
+        action_list = []
+        for i in res:
+            if i['mainMuscle'] == self.name:
+                if i['mainMuscle'] not in action_list:
+                    action_list.append(i['name'])
+        return action_list
+
+    def find_related_equipments(self):
+        res = Mongo.action.find()
+        action_list = []
+        equipment_list = []
+        for i in res:
+            if i['mainMuscle'] == self.name:
+                if i['equipment'] not in equipment_list:
+                    equipment_list.append(i['equipment'])
+        return equipment_list
 
