@@ -30,11 +30,9 @@ class MuscleGroup:
     def find_related_action(self):
         res = Mongo.action.find()
         action_list = []
-
         for i in res:
-            for k in i['mainMuscle']:
-                if k == self.name:
-                    print(1)
+            if i['mainMuscle'] == self.name:
+                if i['mainMuscle'] not in action_list:
                     action_list.append(i['name'])
         return action_list
 
