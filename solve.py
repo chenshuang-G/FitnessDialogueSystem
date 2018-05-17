@@ -35,9 +35,15 @@ def get_describe_of_action(action):
     # 返回动作描述
     return Action(action).get_describe()
 
-def get_action_of_muscle(muscle):
-    # 返回动作列表
-    return Muscle(muscle).get_action()
+def get_actionlist_of_muscle(muscle):
+    # 返回肌肉相关动作(detial肌肉类型)
+    return MuscleGroup(muscle).find_related_action()
+
+def get_equipmentlist_of_muscle(muscle):
+    # 返回肌肉相关器械
+    return MuscleGroup(muscle).find_related_equipments()
+
 if __name__ == '__main__':
-    print(get_muscle_of_action('平板支撑'))
-    print(get_muscleGroup_action('肱二头肌'))
+    # print(get_muscle_of_action('平板支撑'))
+    # print(get_muscleGroup_action('肱二头肌'))
+    print(get_equipmentlist_of_muscle('腹直肌'))
