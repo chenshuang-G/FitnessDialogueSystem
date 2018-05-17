@@ -1,6 +1,7 @@
 from solve import *
 
 patternList = [
+<<<<<<< Updated upstream
     ['action'],# 怎样做俯卧撑
     ['action','肌肉'],# 卧推锻炼哪些肌肉
     ['action','组'],# 卧推怎样做组训练
@@ -27,6 +28,15 @@ patternList = [
     ['machine','action','muscle'],# 哑铃卧推怎样锻炼到胸中束
     ['machine','muscle','special'],# 哑铃练二头有效果吗
     ['',''],#明天再写点 ，不知道这种可以不？
+=======
+    ['action', '肌肉'],# 卧推锻炼哪些肌肉1 return muscle of action
+    ['action', 'muscle'],# 俯卧撑除了练腹肌 return muscle of action
+    ['action'],# 怎样做俯卧撑3 return detial of action ##如果只有一个词，返回动作整体信息
+    ['练', 'muscle'],# 怎么样可以锻炼腹肌4 return detial of action
+    ['action', '要', '器'],# 平板支撑需要什么器械/道具/设备/条件5 return equipment of action
+    ['action', '动作'],# 跟仰卧起坐差不多的动作有什么6 return action of muscle
+    ['muscle', '练'],# 腹肌怎么练7 return detail of action
+>>>>>>> Stashed changes
 ]
 
 
@@ -64,10 +74,9 @@ def pattern(sentence):
         if pattern_match(p, sentence):
             print(sentence)
             if index == 0:
-                # print(1)
                 return get_muscle_of_action(sentence[0][1])
             if index == 1:
-                return get_muscleGroup_action(sentence[1][1])
+                return get_muscle_of_action([0][1])
             if index == 2:
                 return get_details_of_action(sentence[0][1])
             if index == 3:

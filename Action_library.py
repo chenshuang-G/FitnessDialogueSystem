@@ -147,7 +147,8 @@ for i in range(1602):
     actions['mainMuscle'] = str(main_goal).replace('[','').replace(']','').replace('\'','')
     actions['assistantMuscle'] = str(other_goal).replace('[','').replace(']','').replace('\'','')
     actions['equipment'] = str(require).replace('[','').replace(']','').replace('\'','')
-    actions['details'] = str(tips).replace('\n','').replace('[','').replace(']','').replace('\'','')
+    actions['details'] = str(tips).replace('\r\n','').replace('[','').replace(']','').replace('\'','').replace('\r','')
+    actions['describe'] = str(description).replace('\n','').replace('[','').replace(']','').replace('\'','').replace('\r','')
     #将一个动作信息存入数据集中
     ActionTable.insert_one(actions)
 
